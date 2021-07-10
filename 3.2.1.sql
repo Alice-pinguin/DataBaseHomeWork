@@ -1,0 +1,12 @@
+use homework;
+alter table developers add column salary double;
+UPDATE developers SET salary = 5600 WHERE (id_developer = 1);
+UPDATE developers SET salary = 1000 WHERE (id_developer = 2);
+UPDATE developers SET salary = 2500 WHERE (id_developer = 3);
+UPDATE developers SET salary = 3200 WHERE (id_developer = 4);
+UPDATE developers SET salary = 2400 WHERE (id_developer = 5);
+UPDATE developers SET salary = 2500 WHERE (id_developer = 6);
+UPDATE developers SET salary = 3160 WHERE (id_developer = 7);
+UPDATE developers SET salary = 4400 WHERE (id_developer = 8);
+UPDATE developers SET salary = 2600 WHERE (id_developer = 9);
+UPDATE developers SET salary = 1000 WHERE (id_developer = 10);
