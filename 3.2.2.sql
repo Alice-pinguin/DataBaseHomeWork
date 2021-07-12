@@ -1,25 +1,7 @@
 use homework;
-SELECT name, cost FROM projects where cost in
-(select max(cost) from projects);
-
-select distinct(p.name), totalCost
-from projects p
-join developers_projects dp on dp.id_project=p.id_project
-join developers d on d.id_developer=dp.id_developer
-join (SELECT p.id_project pid, sum(d.salary) totalCost
-FROM developers d, projects p, developers_projects dp
-where d.id_developer = dp.id_developer and p.id_project=dp.id_project
-group by p.name) tc on tc.pid=p.id_project
-join (SELECT p.id_project pid, sum(d.salary) tc
-FROM developers d, projects p, developers_projects dp
-where d.id_developer = dp.id_developer and p.id_project=dp.id_project
-group by p.name 
-order by tc desc
-limit 1) maxCost on maxCost.tc=tc.totalCost;
-
-SELECT p.name as project_name, sum(d.salary) totalCost
-FROM developers d, projects p, developers_projects dp
-where d.id_developer = dp.id_developer and p.id_project=dp.id_project
-group by p.name 
-order by totalCost desc
-limit 1;
+SELECT p.name , sum(d.salary)  AS total_cost
+FROM projects p
+INNER JOIN developers_projects pd ON p.id_project = pd.id_project
+INNER JOIN developers d ON d.id_developer=pd.id_developer
+GROUP BY p.name
+ORDER BY total_cost DESC
