@@ -7,9 +7,8 @@ CREATE TABLE developers (
   Name varchar(15) NOT NULL,
   Age int(2),
   Gender enum('men','women'),
-  id_company int NOT NULL,
   PRIMARY KEY (id_developer),
-  FOREIGN KEY (id_company) REFERENCES companies (id_company));
+
 
 CREATE TABLE skills (
   id_skill int NOT NULL AUTO_INCREMENT,
